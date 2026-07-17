@@ -1,0 +1,5 @@
+{
+  "extensionName": { "message": "LLM Conversation Exporter" },
+  "extensionDescription": { "message": "Export conversations from Claude, ChatGPT, and Gemini in Markdown, JSON, or plain text." },
+  "actionTitle": { "message": "LLM Conversation Exporter settings" }
+}

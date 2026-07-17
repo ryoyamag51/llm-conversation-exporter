@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extensionName__",
+  "version": "3.1.0",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "en",
+  "permissions": ["scripting", "storage", "downloads"],
+  "host_permissions": [
+    "https://claude.ai/*",
+    "https://chatgpt.com/*",
+    "https://gemini.google.com/*"
+  ],
+  "action": {
+    "default_title": "__MSG_actionTitle__",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://claude.ai/*",
+        "https://chatgpt.com/*",
+        "https://gemini.google.com/*"
+      ],
+      "js": ["lib/i18n.js", "content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "extractors/claude.js",
+        "extractors/chatgpt.js",
+        "extractors/gemini.js",
+        "lib/errors.js",
+        "images/MD.png",
+        "images/JSON.png",
+        "images/TXT.png",
+        "images/green_check.png",
+        "images/red_cross.png"
+      ],
+      "matches": [
+        "https://claude.ai/*",
+        "https://chatgpt.com/*",
+        "https://gemini.google.com/*"
+      ]
+    }
+  ]
+}

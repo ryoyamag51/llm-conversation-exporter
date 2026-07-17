@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LLM Conversation Exporter</title>
+  <style>
+    :root{--accent:#6010e0;--ink:#21162f;--muted:#6f6579;--border:#e8ddf5;--surface:#fff}*{box-sizing:border-box}
+    body{width:340px;margin:0;padding:18px;font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#faf7ff}
+    .topbar{display:flex;justify-content:flex-end;margin-bottom:10px}.language-switch{display:flex;padding:3px;border:1px solid var(--border);border-radius:999px;background:#fff}
+    .language-switch button{border:0;border-radius:999px;padding:4px 8px;color:var(--muted);background:transparent;font-size:11px;cursor:pointer}.language-switch button.active{color:#fff;background:var(--accent)}
+    header{display:flex;align-items:center;gap:12px;margin-bottom:16px}header img{width:48px;height:48px;border-radius:13px}h1{margin:0;font-size:16px;line-height:1.2}header p{margin:3px 0 0;color:var(--muted);font-size:12px}
+    .panel{overflow:hidden;border:1px solid var(--border);border-radius:14px;background:var(--surface);box-shadow:0 8px 24px rgba(96,16,224,.08)}.setting{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px;border-bottom:1px solid var(--border)}.setting:last-child{border-bottom:0}
+    .label{font-weight:650;font-size:13px}.desc{margin-top:2px;color:var(--muted);font-size:11px}.toggle{position:relative;width:42px;height:24px;flex:none}.toggle input{position:absolute;opacity:0}.slider{position:absolute;inset:0;border-radius:24px;background:#d6cce2;cursor:pointer;transition:.2s}.slider::before{content:"";position:absolute;width:18px;height:18px;left:3px;top:3px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:.2s}.toggle input:checked+.slider{background:var(--accent)}.toggle input:checked+.slider::before{transform:translateX(18px)}.toggle input:focus-visible+.slider{outline:3px solid rgba(96,16,224,.22);outline-offset:2px}
+    .options-link{width:100%;margin-top:14px;padding:10px 14px;border:0;border-radius:10px;color:#fff;background:var(--accent);font-weight:650;cursor:pointer}.options-link:hover{background:#4f0db9}
+    .export-row{margin-bottom:14px}.export-title{font-weight:650;font-size:12px;color:var(--muted);margin-bottom:8px}.export-buttons{display:flex;gap:8px}
+    .export-btn{flex:1;display:flex;align-items:center;justify-content:center;padding:10px 0;border:1px solid var(--border);border-radius:10px;background:#fff;cursor:pointer}.export-btn:hover{border-color:var(--accent);background:#f8f4ff}.export-btn:disabled{opacity:.5;cursor:default}.export-btn img{width:26px;height:26px}
+    .status{display:none;margin-top:8px;padding:8px 10px;border-radius:8px;font-size:12px}.status.success{display:block;color:#167447;background:#e9f8ef}.status.error{display:block;color:#b42318;background:#fff0f0}
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="language-switch" role="group" aria-label="Language"><button type="button" data-language="en">EN</button><button type="button" data-language="ja">日本語</button></div></div>
+  <header><img src="images/LLM.png" alt=""><div><h1>LLM Conversation Exporter</h1><p data-i18n="popupSubtitle">Quick Settings</p></div></header>
+  <div class="export-row"><div class="export-title" data-i18n="popupExportTitle">Export current conversation</div><div class="export-buttons"><button type="button" class="export-btn" data-format="markdown"><img src="images/MD.png" alt="Markdown"></button><button type="button" class="export-btn" data-format="json"><img src="images/JSON.png" alt="JSON"></button><button type="button" class="export-btn" data-format="text"><img src="images/TXT.png" alt="Plain Text"></button></div><div id="popupStatus" class="status"></div></div>
+  <main class="panel">
+    <div class="setting"><div><div class="label" data-i18n="includeMetadata">Include metadata</div><div class="desc" data-i18n="includeMetadataDesc">Add dates and model names.</div></div><label class="toggle"><input id="includeMetadata" type="checkbox"><span class="slider"></span></label></div>
+    <div class="setting"><div><div class="label" data-i18n="showFloatingButton">Show floating button</div><div class="desc" data-i18n="showFloatingButtonDesc">Display the format button.</div></div><label class="toggle"><input id="showFloatingButton" type="checkbox"><span class="slider"></span></label></div>
+  </main>
+  <button id="openOptions" class="options-link" type="button" data-i18n="openOptions">Open settings</button>
+  <script src="lib/i18n.js"></script><script src="popup.js"></script>
+</body>
+</html>
