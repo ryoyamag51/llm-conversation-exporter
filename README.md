@@ -2,6 +2,8 @@
 
 [English](#english) | [日本語](#日本語)
 
+https://github.com/user-attachments/assets/a842a7b9-a745-4049-97d5-47992e6b1a5a
+
 ## English
 
 Export conversations from Claude.ai, ChatGPT, and Gemini as Markdown, JSON, or plain text.
